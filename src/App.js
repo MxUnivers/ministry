@@ -5,6 +5,7 @@ import Navbar from './layout/Navbar';
 import HomePage from './pages/HomePage';
 import AllRoutes from './nametitle/AllRoutes';
 import ContactPage from './pages/ContactPage';
+import TemoignagePage from './pages/TemoignagePage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route index path={``} element={<HomePage/>}/>
           <Route index path={`${AllRoutes.about}`} element={<HomePage/>}/>
           <Route index path={`${AllRoutes.contact}`} element={<ContactPage/>}/>
+          <Route index path={`${AllRoutes.temoignage}`} element={<TemoignagePage/>}/>
         </Route>
       </Routes>
       </BrowserRouter>

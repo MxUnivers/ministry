@@ -14,5 +14,10 @@ const AllRoutes = {
     jeux:"jeux",
     about:"a-propos-de-nous",
     service:"nos-activites",
+    temoignage:"temoignages",
+    evenement:"evenements",
+    dons:"dons-volontaire",
+    ecole:"Ecole-biblique",
+    beginmenber:"devenir-membre",
 }
 export  default AllRoutes;

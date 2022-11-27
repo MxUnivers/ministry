@@ -48,18 +48,16 @@ const Navbar = () => {
                         <a href={`/`} class="nav-item nav-link active text-gray-800">Home</a>
                         <a href={`/${AllRoutes.about}`} class="nav-item nav-link text-gray-800">A propos de nous ?</a>
                         <a href={`/${AllRoutes.contact}`} class="nav-item nav-link text-gray-800">Contact</a>
-                        <a href="product.html" class="nav-item nav-link text-gray-800">Product</a>
+                        <a href={`/${AllRoutes.temoignage}`} class="nav-item nav-link text-gray-800">Témoignages</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Nos Activités</a>
                             <div class="dropdown-menu m-0">
-                                <a href="price.html" class="dropdown-item text-gray-800">Pricing Plan</a>
-                                <a href="team.html" class="dropdown-item text-gray-800">The Team</a>
-                                <a href="testimonial.html" class="dropdown-item text-gray-800">Testimonial</a>
-                                <a href="blog.html" class="dropdown-item text-gray-800">Blog Grid</a>
-                                <a href="detail.html" class="dropdown-item text-gray-800">Blog Detail</a>
+                                <a href="price.html" class="dropdown-item text-gray-800">Evènement</a>
+                                <a href="team.html" class="dropdown-item text-gray-800">Dons</a>
+                                <a href="testimonial.html" class="dropdown-item text-gray-800">Ecole Biblique</a>
                             </div>
                         </div>
-                        <a href="contact.html" class="nav-item nav-link nav-contact bg-primary text-white px-5 ms-lg-5">Contact <i class="bi bi-arrow-right"></i></a>
+                        <a href="contact.html" class="nav-item nav-link nav-contact bg-primary text-white px-5 ms-lg-5">Devenir Membre <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
             </nav>
