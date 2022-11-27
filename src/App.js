@@ -6,6 +6,10 @@ import HomePage from './pages/HomePage';
 import AllRoutes from './nametitle/AllRoutes';
 import ContactPage from './pages/ContactPage';
 import TemoignagePage from './pages/TemoignagePage';
+import EvenementPage from './pages/EvenementPage';
+import Donpage from './pages/DonPage';
+import SchoolPage from './pages/SchoolPage';
+import MemberSignUpPage from './pages/MemberSignUpPage';
 
 function App() {
   return (
@@ -13,12 +17,18 @@ function App() {
       
       <BrowserRouter>
       <Routes>
+        {/* Site web */}
         <Route path="" element={<Navbar/>}>
-          <Route index path={``} element={<HomePage/>}/>
+          <Route index element={<HomePage/>}/>
           <Route index path={`${AllRoutes.about}`} element={<HomePage/>}/>
           <Route index path={`${AllRoutes.contact}`} element={<ContactPage/>}/>
           <Route index path={`${AllRoutes.temoignage}`} element={<TemoignagePage/>}/>
+          <Route index path={`${AllRoutes.evenement}`} element={<EvenementPage/>}/>
+          <Route index path={`${AllRoutes.dons}`} element={<Donpage/>}/>
+          <Route index path={`${AllRoutes.ecole}`} element={<SchoolPage/>}/>
+          <Route index path={`${AllRoutes.member}`} element={<MemberSignUpPage/>}/>
         </Route>
+        {/* BackOffice */}
       </Routes>
       </BrowserRouter>
     </div>

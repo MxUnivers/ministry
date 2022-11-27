@@ -1,5 +1,6 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom';
+import Footer from '../components/Footer';
 import AllRoutes from '../nametitle/AllRoutes';
 
 const Navbar = () => {
@@ -11,7 +12,7 @@ const Navbar = () => {
                         <div class="d-inline-flex align-items-center">
                             <i class="bi bi-geo-alt fs-1 text-primary me-3"></i>
                             <div class="text-start">
-                                <h6 class="text-uppercase mb-1">Our Office</h6>
+                                <h6 class="text-uppercase mb-1">nous Sommes situé ?</h6>
                                 <span>123 Street, New York, USA</span>
                             </div>
                         </div>
@@ -20,7 +21,7 @@ const Navbar = () => {
                         <div class="d-inline-flex align-items-center">
                             <i class="bi bi-envelope-open fs-1 text-primary me-3"></i>
                             <div class="text-start">
-                                <h6 class="text-uppercase mb-1">Email Us</h6>
+                                <h6 class="text-uppercase mb-1">email</h6>
                                 <span>info@example.com</span>
                             </div>
                         </div>
@@ -29,8 +30,11 @@ const Navbar = () => {
                         <div class="d-inline-flex align-items-center">
                             <i class="bi bi-phone-vibrate fs-1 text-primary me-3"></i>
                             <div class="text-start">
-                                <h6 class="text-uppercase mb-1">Call Us</h6>
-                                <span>+012 345 6789</span>
+                                <h6 class="text-uppercase mb-1">Appellez nous</h6>
+                                <div class="flex flex-col space-y-3">
+                                <span>+225 0757573044</span>
+                                <span>+225 0101018504</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -52,21 +56,20 @@ const Navbar = () => {
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Nos Activités</a>
                             <div class="dropdown-menu m-0">
-                                <a href="price.html" class="dropdown-item text-gray-800">Evènement</a>
-                                <a href="team.html" class="dropdown-item text-gray-800">Dons</a>
-                                <a href="testimonial.html" class="dropdown-item text-gray-800">Ecole Biblique</a>
+                                <a href={`/${AllRoutes.evenement}`} class="dropdown-item text-gray-800">Evènement</a>
+                                <a href={`/${AllRoutes.dons}`} class="dropdown-item text-gray-800">Dons</a>
+                                <a href={`/${AllRoutes.ecole}`} class="dropdown-item text-gray-800">Ecole Biblique</a>
                             </div>
                         </div>
-                        <a href="contact.html" class="nav-item nav-link nav-contact bg-primary text-white px-5 ms-lg-5">Devenir Membre <i class="bi bi-arrow-right"></i></a>
+                        <a href={`/${AllRoutes.member}`} class="nav-item nav-link nav-contact bg-primary text-white px-5 ms-lg-5">Devenir Membre <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
             </nav>
             <div>
                 <Outlet />
             </div>
+            <Footer/>
         </div>
-
-
     )
 }
 

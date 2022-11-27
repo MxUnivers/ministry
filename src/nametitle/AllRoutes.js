@@ -18,6 +18,6 @@ const AllRoutes = {
     evenement:"evenements",
     dons:"dons-volontaire",
     ecole:"Ecole-biblique",
-    beginmenber:"devenir-membre",
+    member:"devenir-membre",
 }
 export  default AllRoutes;
