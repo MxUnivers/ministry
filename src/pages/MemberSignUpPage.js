@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaRegPlayCircle } from "react-icons/fa";
+import ModalSignupMember from '../modal/member/ModalSignupMember';
 const MemberSignUpPage = () => {
   return (
     <div>
@@ -12,7 +13,7 @@ const MemberSignUpPage = () => {
                 <h1 class="display-5 text-uppercase text-white mb-0">Devenir un membre pour une une plus forte influence</h1>
               </div>
               <p class="text-white mb-4">Votre soutien fait la fièrté de Christ dans sa Gloire</p>
-              <button  class="btn btn-light py-md-3 px-md-5 me-3">Devenir Membre</button>
+              <button  class="btn btn-light py-md-3 px-md-5 me-3" data-bs-toggle="modal" data-bs-target="#member">Devenir Membre</button>
 
               <button type="button" class="btn-play" data-bs-toggle="modal"
                 data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
@@ -41,6 +42,7 @@ const MemberSignUpPage = () => {
         </div>
       </div>
       {/* Modal Inscription */}
+      <ModalSignupMember/>
       
       <div>
       </div>
