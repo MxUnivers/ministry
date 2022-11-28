@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import  React from  "react";
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './layout/Navbar';
@@ -8,8 +8,8 @@ import ContactPage from './pages/ContactPage';
 import TemoignagePage from './pages/TemoignagePage';
 import EvenementPage from './pages/EvenementPage';
 import DonPage from './pages/DonPage';
-import SchoolPage from './pages/SchoolPage';
 import MemberSignUpPage from './pages/MemberSignUpPage';
+import SchoolBiblePage from './pages/SchoolBiblePage';
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
           <Route index path={`${AllRoutes.temoignage}`} element={<TemoignagePage/>}/>
           <Route index path={`${AllRoutes.evenement}`} element={<EvenementPage/>}/>
           <Route index path={`${AllRoutes.dons}`} element={<DonPage/>}/>
-          <Route index path={`${AllRoutes.ecole}`} element={<SchoolPage/>}/>
+          <Route index path={`${AllRoutes.ecole}`} element={<SchoolBiblePage/>}/>
           <Route index path={`${AllRoutes.member}`} element={<MemberSignUpPage/>}/>
         </Route>
         {/* BackOffice */}
