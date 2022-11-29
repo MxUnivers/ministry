@@ -19,5 +19,8 @@ const AllRoutes = {
     dons:"dons-volontaire",
     ecole:"Ecole-biblique",
     member:"devenir-membre",
+
+    // Admin 
+    admin:"admin",
 }
 export  default AllRoutes;

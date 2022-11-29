@@ -39,14 +39,6 @@ const TemoignagePage = () => {
             
 
             <div class="col-lg-4">
-                
-                <div class="mb-5">
-                    <div class="input-group">
-                        <input type="text" class="form-control p-3" placeholder="Keyword"/>
-                        <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
-                    </div>
-                </div>
-                
                 <div class="mb-5">
                     <h3 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">Categories</h3>
                     <div class="d-flex flex-column justify-content-start">

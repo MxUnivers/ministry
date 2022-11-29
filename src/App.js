@@ -1,3 +1,4 @@
+
 import  React from  "react";
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -10,8 +11,9 @@ import EvenementPage from './pages/EvenementPage';
 import DonPage from './pages/DonPage';
 import MemberSignUpPage from './pages/MemberSignUpPage';
 import SchoolBiblePage from './pages/SchoolBiblePage';
-import DetailTemoingnagePage from "./pages/DetailActivity";
 import DetailActivity from "./pages/DetailActivity";
+import NavbarAdmin from "./layout/admin/NavbarAdmin";
+import DasboardAdmin from "./pages/admin/DasboardAdmin";
 
 function App() {
   return (
@@ -19,18 +21,27 @@ function App() {
       
       <BrowserRouter>
       <Routes>
+
+        <Route path={`${AllRoutes.admin}`} element={<NavbarAdmin/>} >
+          <Route index element={<DasboardAdmin/>}/>
+        </Route>
+
+
         {/* Site web */}
         <Route path="/" element={<Navbar/>}>
           <Route index element={<HomePage/>}/>
           <Route index path={`${AllRoutes.about}`} element={<HomePage/>}/>
           <Route index path={`${AllRoutes.contact}`} element={<ContactPage/>}/>
-
+          
+          {/* BackOffice */}
           <Route index path={`${AllRoutes.temoignage}`} element={<TemoignagePage/>}/>
           <Route index path={`${AllRoutes.temoignage}/:id`} element={<DetailActivity/>}/>
 
+          {/* Evenement */}
           <Route index path={`${AllRoutes.evenement}`} element={<EvenementPage/>}/>
           <Route index path={`${AllRoutes.evenement}/:id`} element={<DetailActivity/>}/>
 
+          {/* Dons */}
           <Route index path={`${AllRoutes.dons}`} element={<DonPage/>}/>
           <Route index path={`${AllRoutes.dons}/:id`} element={<DetailActivity/>}/>
 
