@@ -10,6 +10,8 @@ import EvenementPage from './pages/EvenementPage';
 import DonPage from './pages/DonPage';
 import MemberSignUpPage from './pages/MemberSignUpPage';
 import SchoolBiblePage from './pages/SchoolBiblePage';
+import DetailTemoingnagePage from "./pages/DetailActivity";
+import DetailActivity from "./pages/DetailActivity";
 
 function App() {
   return (
@@ -18,13 +20,20 @@ function App() {
       <BrowserRouter>
       <Routes>
         {/* Site web */}
-        <Route path="" element={<Navbar/>}>
+        <Route path="/" element={<Navbar/>}>
           <Route index element={<HomePage/>}/>
           <Route index path={`${AllRoutes.about}`} element={<HomePage/>}/>
           <Route index path={`${AllRoutes.contact}`} element={<ContactPage/>}/>
+
           <Route index path={`${AllRoutes.temoignage}`} element={<TemoignagePage/>}/>
+          <Route index path={`${AllRoutes.temoignage}/:id`} element={<DetailActivity/>}/>
+
           <Route index path={`${AllRoutes.evenement}`} element={<EvenementPage/>}/>
+          <Route index path={`${AllRoutes.evenement}/:id`} element={<DetailActivity/>}/>
+
           <Route index path={`${AllRoutes.dons}`} element={<DonPage/>}/>
+          <Route index path={`${AllRoutes.dons}/:id`} element={<DetailActivity/>}/>
+
           <Route index path={`${AllRoutes.ecole}`} element={<SchoolBiblePage/>}/>
           <Route index path={`${AllRoutes.member}`} element={<MemberSignUpPage/>}/>
         </Route>

@@ -1,4 +1,5 @@
 import React from 'react'
+import AllRoutes from '../nametitle/AllRoutes';
 
 const EvenementPage = () => {
     return (
@@ -11,6 +12,7 @@ const EvenementPage = () => {
             </div>
 
                 <div class="blog-item mb-8">
+
                     <div class="row g-0 bg-light overflow-hidden">
                         <div class="col-12 col-sm-5 h-100">
                             <img class="img-fluid h-100" src="img/blog-1.jpg" style={{ objectFit: "cover" }} />
@@ -23,10 +25,12 @@ const EvenementPage = () => {
                                 </div>
                                 <h5 class="text-uppercase mb-3">Dolor sit magna rebum clita rebum dolor</h5>
                                 <p>Ipsum sed lorem amet dolor amet duo ipsum amet et dolore est stet tempor eos dolor</p>
-                                <a class="text-primary text-uppercase" href="">Read More<i class="bi bi-chevron-right"></i></a>
+                                <a class="text-primary text-uppercase" href={`/${AllRoutes.evenement}/:id`}>Read More<i class="bi bi-chevron-right"></i></a>
                             </div>
                         </div>
                     </div>
+                    {/* Modal View */}
+                    
                 </div>
             </div>
         </div>

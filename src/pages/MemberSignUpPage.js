@@ -2,9 +2,11 @@ import React from 'react'
 import { FaRegPlayCircle } from "react-icons/fa";
 import ModalSignupMember from '../modal/member/ModalSignupMember';
 const MemberSignUpPage = () => {
+  const bgImg = "https://images.pexels.com/photos/5063055/pexels-photo-5063055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+
   return (
     <div>
-      <div class="container-fluid bg-offer my-5 py-5">
+      <div class="container-fluid bg-offer my-5 py-5" style={{backgroundImage:`url('${bgImg}')`}}>
         <div class="container py-5">
           <div class="row gx-5 justify-content-start">
             <div class="col-lg-7">

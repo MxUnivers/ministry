@@ -66,8 +66,7 @@ const SchoolBiblePage = () => {
                             </div>
                             <div class="modal-body">
                               <div class="ratio ratio-16x9">
-                                <ReactAudioPlayer src=" https://www.cjoint.com/c/LKChcwiXni5" controls onPlay={true} />
-                                
+                                <ReactAudioPlayer src="https://www.cjoint.com/c/LKChcwiXni5" controls onPlay={true} />
                               </div>
                             </div>
                           </div>
@@ -89,6 +88,7 @@ const SchoolBiblePage = () => {
                           </div>
                         </div>
                       </div>
+                      {/* End Modal Video */}
                     </div>
                   )
                 })
