@@ -1,5 +1,6 @@
 import React from 'react'
 import { FiUsers } from 'react-icons/fi';
+import MemberCompDashBoard from '../../components/admin/dasboard/MemberCompDashBoard';
 import UserCompoDashboard from '../../components/admin/dasboard/UserCompoDashboard';
 
 const DasboardAdmin = () => {
@@ -79,11 +80,9 @@ const DasboardAdmin = () => {
             </div>
           </div>
         </div>
-
-
-        <div class="grid grid-cols-2">
+        <div class="grid grid-cols-2 gap-3 mt-5">
           <UserCompoDashboard/>
-          <UserCompoDashboard/>
+          <MemberCompDashBoard/>
         </div>
 
       </div>
