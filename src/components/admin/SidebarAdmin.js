@@ -1,5 +1,6 @@
 import React from 'react'
 import {FiUsers} from  "react-icons/fi";
+import AllRoutes from '../../nametitle/AllRoutes';
 
 
 
@@ -14,16 +15,19 @@ const SidebarAdmin = () => {
         <div class="w-full h-screen">
             <div class="w-full">
                 <div class="w-[200px] bg-lime-400 transition-all ease-linear duration-700 py-3 my-2">
-                    <a href={`/`} class="px-2 text-white w-[200px]">Dashboard</a>
+                    <a href={`/${AllRoutes.admin}`} class="px-2 text-white w-[200px]">Dashboard</a>
                 </div>
                 <div class="w-[200px]  bg-lime-700 hover:bg-lime-400 transition-all ease-linear duration-700 py-3 my-2">
-                    <a href={`/`} class="px-2 text-white w-[200px]">Temoignages</a>
+                    <a href={`/${AllRoutes.admin}/${AllRoutes.temoins}`} class="px-2 text-white w-[200px]">Temoignages</a>
                 </div>
                 <div class="w-[200px]  bg-lime-700 hover:bg-lime-400 transition-all ease-linear duration-700 py-3 my-2">
                     <a href={`/`} class="px-2 text-white w-[200px]">Activités</a>
                 </div>
                 <div class="w-[200px]  bg-lime-700 hover:bg-lime-400 transition-all ease-linear duration-700 py-3 my-2 flex item-center justify-center">
                     <a href={`/`} class="px-2 text-white w-[200px]  ">Membres</a>
+                </div>
+                <div class="w-[200px]  bg-lime-700 hover:bg-lime-400 transition-all ease-linear duration-700 py-3 my-2 flex item-center justify-center">
+                    <a href={`/`} class="px-2 text-white w-[200px]  ">Utlisateurs</a>
                 </div>
             </div>
         </div>

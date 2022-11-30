@@ -11,8 +11,8 @@ const DasboardAdmin = () => {
   return (
     <div class="container-fluid w-full p-2">
       <div class="w-full ">
-        <h2 class="px-5">DasboardAdmin</h2>
-
+        <h2 class="px-5 py-3 bg-lime-300 rounded-lg mb-3">Tableau de bord</h2>
+        
         {/*  */}
         <div class="grid grid-cols-4 gap-3">
           <div class="bg-lime-600 text-white flex space-x-2 rounded-lg p-2 px-1">

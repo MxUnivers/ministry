@@ -20,7 +20,17 @@ const AllRoutes = {
     ecole:"Ecole-biblique",
     member:"devenir-membre",
 
+
+
+
     // Admin 
     admin:"admin",
+    temoins:"temoignages",
+    activity:"activites",
+    memberlist:"membres",
+    userlist:"utlisateurs",
+    add:"add",
+    
+
 }
 export  default AllRoutes;

@@ -41,7 +41,6 @@ const MemberCompDashBoard = () => {
                             <table class="w-full whitespace-nowrap">
                                 <tbody>
                                     {
-
                                         items.map(() => {
                                             return (
                                                 <tr tabindex="0" class="w-full focus:outline-none my-2 h-16 border border-gray-100 rounded">
