@@ -16,6 +16,11 @@ import NavbarAdmin from "./layout/admin/NavbarAdmin";
 import DasboardAdmin from "./pages/admin/DasboardAdmin";
 import LayoutTemoignageAdmin from "./layout/admin/temoignage/LayoutTemoignageAdmin";
 import ListTemoignageAdminPage from "./pages/admin/temoignage/ListTemoignageAdminPage";
+import AddTemoignagePage from "./pages/admin/temoignage/AddTemoignagePage";
+import UpdateTemoignagePage from "./pages/admin/temoignage/UpdateTemoignagePage";
+import ViewTemoignagePage from "./pages/admin/temoignage/ViewTemoignagePage";
+import ListMemberPage from "./pages/admin/members/ListMemberPage";
+import ListUserPage from "./pages/admin/users/ListUserPage";
 
 function App() {
   return (
@@ -27,10 +32,17 @@ function App() {
         {/* Admin ***********************************************************************************/}
         <Route path={`${AllRoutes.admin}`} element={<NavbarAdmin/>} >
           <Route index element={<DasboardAdmin/>}/>
-
+          {/* Temoignage Admin */}
           <Route path={`${AllRoutes.temoins}`} element={<LayoutTemoignageAdmin/>}>
             <Route index element={<ListTemoignageAdminPage/>} />
+            <Route path={`:id`} element={<ViewTemoignagePage/>} />
+            <Route path={`${AllRoutes.add}`} element={<AddTemoignagePage/>} />
+            <Route path={`${AllRoutes.update}/:id`} element={<UpdateTemoignagePage/>} />
           </Route>
+          {/* Membres */}
+          <Route path={`${AllRoutes.memberlist}`} element={<ListMemberPage/>}/>
+          {/* Utlisateurs */}
+          <Route path={`${AllRoutes.userlist}`} element={<ListUserPage/>}/>
 
         </Route>
 

@@ -30,6 +30,7 @@ const AllRoutes = {
     memberlist:"membres",
     userlist:"utlisateurs",
     add:"add",
+    update:"update"
     
 
 }
