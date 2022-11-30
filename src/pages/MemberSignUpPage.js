@@ -17,8 +17,8 @@ const MemberSignUpPage = () => {
               <p class="text-white mb-4">Votre soutien fait la fièrté de Christ dans sa Gloire</p>
               <button  class="btn btn-light py-md-3 px-md-5 me-3" data-bs-toggle="modal" data-bs-target="#member">Devenir Membre</button>
 
-              <button type="button" class="btn-play" data-bs-toggle="modal"
-                data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
+              <button type="button" class="btn-play" data-bs-toggle="modal" data-bs-target="#videoModal"
+                data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" >
                 <span></span>
               </button>
 
