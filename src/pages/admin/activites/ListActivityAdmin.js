@@ -17,30 +17,30 @@ const ListActivityAdmin = () => {
   return (
     <div>
         {/* Liste des boutons */}
-        <div class="w-full">
-            <div class="flex flex-wrap space-x-3">
-                <div class="mx-2">
+        <div class="container-fluid w-full flex flex-col">
+            <div class="w-full flex justify-start flex-wrap space-x-3">
+                <div class="m-1">
                     <button type="button" 
                     onClick={showBtn1} 
                     class={`btn btn-outline-primary ${btn1} active:bg-gray-300 py-1 px-3 rounded-2xl text-sm `}>
                       evenements
                     </button>
                 </div>
-                <div class="mx-2">
+                <div class="m-1">
                     <button type="button" 
                     onClick={showBtn2} 
                     class={`btn btn-outline-primary ${btn2} active:bg-gray-300 py-1 px-3 rounded-2xl text-sm `}>
                         dons
                     </button>
                 </div>
-                <div class="mx-2">
+                <div class="m-1">
                     <button type="button" 
                     onClick={showBtn3} 
                     class={`btn btn-outline-primary ${btn3} active:bg-gray-300 py-1 px-3 rounded-2xl  text-sm`}>
                         école biblique
                     </button>
                 </div>
-                <div class="mx-2">
+                <div class="m-1">
                     <button type="button" 
                     onClick={showBtn4} 
                     class={`btn btn-outline-primary ${btn4} active:bg-gray-300 py-1 px-3 rounded-2xl  text-sm`}>
@@ -50,7 +50,7 @@ const ListActivityAdmin = () => {
             </div>
         </div>
         {/*  primary*/}
-        <div>
+        <div class="w-full">
             {/* Evenent */}
             {/* School */}
             {/* Dons */}
