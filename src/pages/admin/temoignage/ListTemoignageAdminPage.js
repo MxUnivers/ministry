@@ -51,10 +51,12 @@ const ListTemoignageAdminPage = () => {
                                 <div class=" text-black">Autheur</div>
                               </div>
                               <div class="h-[50px] line-clamp-2 px-3 text-gray-400">
+                                <p>
                                 djjdhjdhdjh djkd kkqn 
                                 djjdhjdhdjh djkd kkqn 
                                 djjdhjdhdjh djkd kkqn 
-                                djjdhjdhdjh djkd kkqn 
+                                djjdhjdhdjh djkd kkqn
+                                </p>
                               </div>
                             </div>
                           </div>

@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
-import ModalAddUser from '../../../modal/admin/users/ModalAddMember'
-import ModalUdpateUser from '../../../modal/admin/users/ModalUdpateUser copy'
+
+import React, { useState } from 'react';
+import ModalAddUser from '../../../modal/admin/users/ModalAddUser';
+import { FiUsers } from 'react-icons/fi';
+
+
 
 const ListUserPage = () => {
     const items = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
@@ -13,8 +16,8 @@ const ListUserPage = () => {
 
     return (
         <div class="w-full">
-            <div class="py-1 my-2 mx-1 bg-cyan-700 text-white px-2 py-2 rounded-lg">
-                <h2 class=" ">utlisateurs</h2>
+            <div class="py-1 my-2 mx-1 bg-cyan-700 text-white px-2 py-2 rounded-lg flex justify-center ">
+                <h2 class=" text-white flex space-x-3 items-center text-xl"><FiUsers class="text-white w-8 h-8"/>Utlisateurs</h2>
             </div>
             <div class="w-full  rounded-lg bg-white px-2 h-[600px] overflow-y-scroll ">
                 <div class="w-full flex justify-between py-3 ">

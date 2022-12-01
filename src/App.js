@@ -21,6 +21,8 @@ import UpdateTemoignagePage from "./pages/admin/temoignage/UpdateTemoignagePage"
 import ViewTemoignagePage from "./pages/admin/temoignage/ViewTemoignagePage";
 import ListMemberPage from "./pages/admin/members/ListMemberPage";
 import ListUserPage from "./pages/admin/users/ListUserPage";
+import LayoutActvityAdmin from "./layout/admin/activtes/LayoutActvityAdmin";
+import ListActivityAdmin from "./pages/admin/activites/ListActivityAdmin";
 
 function App() {
   return (
@@ -43,6 +45,10 @@ function App() {
           <Route path={`${AllRoutes.memberlist}`} element={<ListMemberPage/>}/>
           {/* Utlisateurs */}
           <Route path={`${AllRoutes.userlist}`} element={<ListUserPage/>}/>
+          {/* Activités */}
+          <Route path={`${AllRoutes.activity}`} element={<LayoutActvityAdmin/>}>
+            <Route index element={<ListActivityAdmin/>}/>
+          </Route>
 
         </Route>
 

@@ -21,7 +21,7 @@ const SidebarAdmin = () => {
                     <a href={`/${AllRoutes.admin}/${AllRoutes.temoins}`} class="px-2 text-white w-[200px]">Temoignages</a>
                 </div>
                 <div class="w-[200px]  bg-lime-700 hover:bg-lime-400 transition-all ease-linear duration-700 py-3 my-2">
-                    <a href={`/`} class="px-2 text-white w-[200px]">Activités</a>
+                    <a href={`/${AllRoutes.admin}/${AllRoutes.activity}`} class="px-2 text-white w-[200px]">Activités</a>
                 </div>
                 <div class="w-[200px]  bg-lime-700 hover:bg-lime-400 transition-all ease-linear duration-700 py-3 my-2 flex item-center justify-center">
                     <a  href={`/${AllRoutes.admin}/${AllRoutes.memberlist}`} class="px-2 text-white w-[200px]  ">Membres</a>

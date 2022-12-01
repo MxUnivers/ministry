@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const ModalAddMember = () => {
+const ModalAddUser = () => {
   const [state, setstate] = useState();
   const [email, setemail] = useState();
   const [telephone, settelephone] = useState();
@@ -13,7 +13,7 @@ const ModalAddMember = () => {
         <div class="modal-content rounded-0">
           <div class="modal-header relative">
             <h6 class=" modal-title  text-primary text-uppercase display-7 text-uppercase mb-0" id="exampleModalLabel" style={{ maxWidth: "600px" }}>
-                Nouveau Membre
+                Ajouter nouvel utlisateur
             </h6>
             <button type="button" class="absolute top-3 right-4 btn btn-close text-2xl " data-bs-dismiss="modal" aria-label="Close">X</button>
           </div>
@@ -35,7 +35,7 @@ const ModalAddMember = () => {
                     <input type="text" required class="form-control bg-light border-0 px-4" placeholder="pays" style={{ height: "55px" }} />
                   </div>
                   <div class="col-12">
-                    <button class="btn btn-outline-primary w-100 py-3" type="submit">Ajouter utlisateur</button>
+                    <button class="btn btn-outline-primary w-100 py-3" type="submit">Ajouter</button>
                   </div>
                 </div>
               </form>
@@ -48,4 +48,4 @@ const ModalAddMember = () => {
     )
 }
 
-export default ModalAddMember;
+export default ModalAddUser;
