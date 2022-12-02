@@ -12,7 +12,7 @@ const LayoutActvityAdmin = () => {
               <MdMapsHomeWork class="text-white w-8 h-8" />Activtés
             </h2>
           </div>
-          <div class="w-full px-2 flex justify-center shadow-md">
+          <div class="w-full px-2 shadow-md">
             <Outlet />
           </div>
         </div>
