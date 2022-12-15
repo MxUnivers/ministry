@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import ModalAddProgram from '../../../modal/admin/actvites/ModalAddProgram';
 
 const ListProgramAdmin = () => {
@@ -30,10 +30,7 @@ const ListProgramAdmin = () => {
                   items.map(() => {
                     return (
                       <div class=" w-full border lg:max-w-full ">
-                        {/* <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
-                          style={{ backgroundImage: `url('https://images.pexels.com/photos/8383498/pexels-photo-8383498.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')` }}
-                          title="Woman holding a mug">
-                        </div> */}
+                        {/* <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none */}
                         <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
                           <div class="mb-8">
                             <p class="text-sm text-gray-600 flex items-center">

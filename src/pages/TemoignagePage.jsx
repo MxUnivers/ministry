@@ -4,12 +4,14 @@ import AllRoutes from '../nametitle/AllRoutes';
 
 
 const TemoignagePage = () => {
+    const  bgImg =  "https://images.pexels.com/photos/6567283/pexels-photo-6567283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
   return (
     <div>
         <div class="container py-5">
+            <h2 class="text-gray-500 text-xl pb-4">Témoignages</h2>
         <div class="mb-5">
             <div class="input-group">
-                        <input type="text" class="form-control p-3" placeholder="rechercher..."/>
+                        <input type="text" class="form-control p-3" placeholder="rechercher ..."/>
                         <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
                     </div>
             </div>
@@ -17,19 +19,19 @@ const TemoignagePage = () => {
             
             <div class="col-lg-8">
                 <div class="blog-item mb-5">
-                    <div class="row g-0 bg-light overflow-hidden">
+                    <div class=" w-full row g-0 bg-light overflow-hidden">
                         <div class="col-12 col-sm-5 h-100">
-                            <img class="img-fluid h-100" src="img/blog-1.jpg" style={{objectFit: "cover"}}/>
+                            <img class="img-fluid h-100" src={`${bgImg}`} style={{objectFit: "cover"}}/>
                         </div>
                         <div class="col-12 col-sm-7 h-100 d-flex flex-column justify-content-center">
                             <div class="p-4">
                                 <div class="d-flex mb-3">
-                                    <small class="me-3"><i class="bi bi-bookmarks me-2"></i>Web Design</small>
+                                    <small class="me-3"><i class="bi bi-bookmarks me-2"></i>type de temoignage</small>
                                     <small><i class="bi bi-calendar-date me-2"></i>01 Jan, 2045</small>
                                 </div>
-                                <h5 class="text-uppercase mb-3">Dolor sit magna rebum clita rebum dolor</h5>
-                                <p>Ipsum sed lorem amet dolor amet duo ipsum amet et dolore est stet tempor eos dolor</p>
-                                <a class="text-primary text-uppercase" href={`${AllRoutes.temoignage}/:id`}>Read More<i class="bi bi-chevron-right"></i></a>
+                                <h5 class="text-uppercase mb-3">Temoignage</h5>
+                                <p class="line-clamp-4">J'etais malade et Dieu m'a guérri</p>
+                                <a class="text-primary text-uppercase" href={`${AllRoutes.temoignage}/:id`}>Lire ...<i class="bi bi-chevron-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -69,7 +71,7 @@ const TemoignagePage = () => {
                     <h3 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">Plain Text</h3>
                     <div class="bg-light text-center" style={{padding: "30px"}}>
                         <p>Vero sea et accusam justo dolor accusam lorem consetetur, dolores sit amet sit dolor clita kasd justo, diam accusam no sea ut tempor magna takimata, amet sit et diam dolor ipsum amet diam</p>
-                        <a href="" class="btn btn-primary py-2 px-4">Read More</a>
+                        <a href="" class="btn btn-primary py-2 px-4">Voire plus </a>
                     </div>
                 </div>
                 

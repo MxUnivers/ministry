@@ -82,7 +82,8 @@ const ListUserPage = () => {
                                                                 voire
                                                             </button>
                                                             <button type="btn" class="  text-lime-900 hover:underline px-1 px-2 py-1" data-bs-toggle="modal" data-bs-target="#updateUser">modifier</button>
-                                                            <button type="btn" class="  text-red-900 hover:underline px-1 px-2 py-1 " data-bs-toggle="modal" data-bs-target="#hideUser">bloquer</button>
+                                                            <button type="btn" class="  text-green-600 hover:underline px-1 px-2 py-1 " data-bs-toggle="modal" data-bs-target="#showUser">débloquer</button>
+                                                            <button type="btn" class="  text-red-900 hover:underline px-1 px-2 py-1" data-bs-toggle="modal" data-bs-target="#hideUser">bloquer</button>
                                                             {/* Modal Update */}
                                                             <div class=" modal fade " id="updateUser" tabIndex="-2" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                 <div class="modal-dialog">

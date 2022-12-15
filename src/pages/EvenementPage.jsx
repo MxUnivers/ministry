@@ -4,15 +4,12 @@ import AllRoutes from '../nametitle/AllRoutes';
 const EvenementPage = () => {
     return (
         <div class="w-full flex flex-row space-y-3 justify-center">
-            
-            
             <div class="col-lg-8 space-y-6 mx-5 my-5">
             <div class="py-2 ">
                 <div class="text-3xl font-bold">Evenements</div>
             </div>
-
                 <div class="blog-item mb-8">
-
+s
                     <div class="row g-0 bg-light overflow-hidden">
                         <div class="col-12 col-sm-5 h-100">
                             <img class="img-fluid h-100" src="img/blog-1.jpg" style={{ objectFit: "cover" }} />

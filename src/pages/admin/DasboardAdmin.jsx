@@ -1,9 +1,12 @@
 import React from 'react'
 import { FiUsers } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 import MemberCompDashBoard from '../../components/admin/dasboard/MemberCompDashBoard';
 import UserCompoDashboard from '../../components/admin/dasboard/UserCompoDashboard';
+import AllRoutes from '../../nametitle/AllRoutes';
 
 const DasboardAdmin = () => {
+  const  navigate =  useNavigate();
   const bgImg1 = "https://images.pexels.com/photos/5063055/pexels-photo-5063055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
   const bgImg2 = "https://images.pexels.com/photos/5063055/pexels-photo-5063055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
   const bgImg3 = "https://images.pexels.com/photos/5063055/pexels-photo-5063055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
@@ -25,7 +28,7 @@ const DasboardAdmin = () => {
                 </label>
               </div>
               <div>
-                <button class="hover:underline bg-light py-1 px-2 rounded-lg text-lime-700 ">
+                <button onClick={()=>{navigate(`/${AllRoutes.admin}/${AllRoutes.temoins}`)}} class="hover:underline bg-light py-1 px-2 rounded-lg text-lime-700 ">
                   voire
                 </button>
               </div>
@@ -41,7 +44,7 @@ const DasboardAdmin = () => {
                 </label>
               </div>
               <div>
-                <button class="hover:underline bg-light py-1 px-2 rounded-lg text-lime-700 ">
+                <button onClick={()=>{navigate(`/${AllRoutes.admin}/${AllRoutes.activity}`)}} class="hover:underline bg-light py-1 px-2 rounded-lg text-lime-700 ">
                   voire
                 </button>
               </div>
@@ -57,7 +60,7 @@ const DasboardAdmin = () => {
                 </label>
               </div>
               <div>
-                <button class="hover:underline bg-light py-1 px-2 rounded-lg text-lime-700 ">
+                <button onClick={()=>{navigate(`/${AllRoutes.admin}/${AllRoutes.memberlist}`)}} class="hover:underline bg-light py-1 px-2 rounded-lg text-lime-700 ">
                   voire
                 </button>
               </div>
@@ -73,7 +76,7 @@ const DasboardAdmin = () => {
                 </label>
               </div>
               <div>
-                <button class="hover:underline bg-light py-1 px-2 rounded-lg text-lime-700 ">
+                <button onClick={()=>{navigate(`/${AllRoutes.admin}/${AllRoutes.userlist}`)}} class="hover:underline bg-light py-1 px-2 rounded-lg text-lime-700 ">
                   voire
                 </button>
               </div>

@@ -23,6 +23,7 @@ import ListMemberPage from "./pages/admin/members/ListMemberPage";
 import ListUserPage from "./pages/admin/users/ListUserPage";
 import LayoutActvityAdmin from "./layout/admin/activtes/LayoutActvityAdmin";
 import ListActivityAdmin from "./pages/admin/activites/ListActivityAdmin";
+import AboutUsPage from "./pages/AboutUsPage";
 
 function App() {
   return (
@@ -56,7 +57,7 @@ function App() {
         {/* Site web ********************************************************************************/}
         <Route path="/" element={<Navbar/>}>
           <Route index element={<HomePage/>}/>
-          <Route index path={`${AllRoutes.about}`} element={<HomePage/>}/>
+          <Route index path={`${AllRoutes.about}`} element={<AboutUsPage/>}/>
           <Route index path={`${AllRoutes.contact}`} element={<ContactPage/>}/>
           
           {/* temoignage */}
