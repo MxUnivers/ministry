@@ -11,4 +11,10 @@ export const Localvalue = {
     titleBlog: "blogvideo",
     contentBlog: "contentvideo",
     descriptionBlog: "descriptionblog",
+    // Temoignage
+    idTemoignage :"idTemoignage",
+    titleTemoignage:"titleTemoignage",
+    contentTemoignage:"contentTemoignage",
+    descriptionTemoignage:"descriptionTemoignage",
+    coverPictureTemoignage:"coverPictureTemoignage",
 }

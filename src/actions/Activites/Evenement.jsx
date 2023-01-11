@@ -3,19 +3,18 @@ import AllRoutes from "../../nametitle/AllRoutes";
 import { baseUrl } from "../../nametitle/dataUrl";
 
 
-// Créer un Temoignage
-export const CreateTemoignage = (title, coverPicture, description, content, video, audio, redirect) => {
+// Créer un Event
+export const CreateEvent = (title, coverPicture, description, date, redirect) => {
   var data = JSON.stringify({
     "title": title,
     "coverPicture": coverPicture,
     "description": description,
-    "content": content,
-    "video": video,
-    "audio": audio
+    "date": date,
+    "typeActivity":"evenement"
   });
   var config = {
     method: 'post',
-    url: `${baseUrl.baseUrl}/api/v1/temoignages/`,
+    url: `${baseUrl.baseUrl}/api/v1/activites/event/`,
     headers: {
       'Authorization': 'Bearer ',
       'Content-Type': 'application/json',
@@ -34,18 +33,17 @@ export const CreateTemoignage = (title, coverPicture, description, content, vide
 }
 
 // Mise ajour du Témoignage
-export const UpdateTemoignage = (id, title, coverPicture, description, content, video, audio, redirect) => {
+export const UpdateEvent = (id, title, coverPicture, description,date, redirect) => {
   var data = JSON.stringify({
     "title": title,
     "coverPicture": coverPicture,
     "description": description,
-    "content": content,
-    "video": video,
-    "audio": audio
+    "date": date,
+    "typeActivity":"evenement"
   });
   var config = {
     method: 'put',
-    url: `${baseUrl.baseUrl}/api/v1/temoignages/${id}`,
+    url: `${baseUrl.baseUrl}/api/v1/activites/events/${id}`,
     headers: {
       'Authorization': 'Bearer ',
       'Content-Type': 'application/json',
@@ -69,13 +67,13 @@ export const UpdateTemoignage = (id, title, coverPicture, description, content, 
 
 
 // **************************************************************   Mise ajour du mot de passe
-export const UpdateVideoTemoignage = (password, redirect) => {
+export const UpdateVideoEvent = (password, redirect) => {
   var data = JSON.stringify({
     "password": password,
   });
   var config = {
     method: 'post',
-    url: `${baseUrl.baseUrl}/api/v1/temoignages/`,
+    url: `${baseUrl.baseUrl}/api/v1/activites/events/`,
     headers: {
       'Content-Type': 'application/json',
       'Cookie': 'JSESSIONID=4929A2A226D1D000ECA1AF8906558AF0'
@@ -93,13 +91,13 @@ export const UpdateVideoTemoignage = (password, redirect) => {
 }
 
 // ************************************************ rendre invisible témoignage
-export const StopTemoignage = (redirect) => {
+export const StopEvent = (id,redirect) => {
   var data = JSON.stringify({
     "visible": Boolean(false),
   });
   var config = {
     method: 'put',
-    url: `${baseUrl.baseUrl}/api/v1/temoignages/`,
+    url: `${baseUrl.baseUrl}/api/v1/activites/events/hide/${id}`,
     headers: {
       'Content-Type': 'application/json',
       'Cookie': 'JSESSIONID=4929A2A226D1D000ECA1AF8906558AF0'
@@ -120,13 +118,13 @@ export const StopTemoignage = (redirect) => {
 
 
 // ********************************************* Rendre visible temoignage 
-export const AccessTemoignage = (redirect) => {
+export const AccessEvent = (id,redirect) => {
   var data = JSON.stringify({
     "visible": Boolean(true),
   });
   var config = {
     method: 'put',
-    url: `${baseUrl.baseUrl}/api/v1/temoignages/`,
+    url: `${baseUrl.baseUrl}/api/v1/activites/events/show/${id}`,
     headers: {
       'Content-Type': 'application/json',
       'Cookie': 'JSESSIONID=4929A2A226D1D000ECA1AF8906558AF0'
@@ -144,9 +142,9 @@ export const AccessTemoignage = (redirect) => {
 }
 
 
-// Recupérer tout les temoignages
-export const LoadAllTemoignage = (SetState) => {
-  axios.get(`${baseUrl.baseUrl}/api/v1/temoignages/`, {
+// Recupérer tout les programes
+export const LoadAllEvent = (SetState) => {
+  axios.get(`${baseUrl.baseUrl}/api/v1/activites/events/`, {
     headers: {
       'Content-Type': 'application/json',
       'Cookie': 'JSESSIONID=4929A2A226D1D000ECA1AF8906558AF0'

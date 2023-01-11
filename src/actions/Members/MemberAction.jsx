@@ -3,20 +3,20 @@ import AllRoutes from "../../nametitle/AllRoutes";
 import { baseUrl } from "../../nametitle/dataUrl";
 
 
-// Créer un Program
-export const CreateProgram = (title, coverPicture, description, content, video, audio, redirect) => {
+// Créer un compte 
+export const CreateMember = (name, coverPicture, email, code, telephone, pays, password, redirect) => {
   var data = JSON.stringify({
-    "title": title,
+    "name": name,
     "coverPicture": coverPicture,
-    "description": description,
-    "content": content,
-    "video": video,
-    "audio": audio,
-    "typeActivity":"evenement"
+    "email": email,
+    "code": code,
+    "telephone": telephone,
+    "pays": pays,
+    "password": password,
   });
   var config = {
     method: 'post',
-    url: `${baseUrl.baseUrl}/api/v1/activites/events/`,
+    url: `${baseUrl.baseUrl}/api/v1/members/`,
     headers: {
       'Authorization': 'Bearer ',
       'Content-Type': 'application/json',
@@ -34,19 +34,20 @@ export const CreateProgram = (title, coverPicture, description, content, video, 
     });
 }
 
-// Mise ajour du Témoignage
-export const UpdateProgram = (id, title, coverPicture, description, content, video, audio, redirect) => {
+// Mise ajour du compte 
+export const UpdateMember = (id, name, coverPicture, email, code, telephone, pays,password, redirect) => {
   var data = JSON.stringify({
-    "title": title,
+    "name": name,
     "coverPicture": coverPicture,
-    "description": description,
-    "content": content,
-    "video": video,
-    "audio": audio
+    "email": email,
+    "code": code,
+    "telephone": telephone,
+    "pays": pays,
+    "password":password
   });
   var config = {
     method: 'put',
-    url: `${baseUrl.baseUrl}/api/v1/activites/events/${id}`,
+    url: `${baseUrl.baseUrl}/api/v1/members/${id}`,
     headers: {
       'Authorization': 'Bearer ',
       'Content-Type': 'application/json',
@@ -54,6 +55,7 @@ export const UpdateProgram = (id, title, coverPicture, description, content, vid
     },
     data: data
   };
+
   axios(config)
     .then(function (response) {
       console.log(JSON.stringify(response.data));
@@ -69,14 +71,14 @@ export const UpdateProgram = (id, title, coverPicture, description, content, vid
 
 
 
-// **************************************************************   Mise ajour du mot de passe
-export const UpdateVideoProgram = (password, redirect) => {
+// **************************************************************   Mise à jour du mot de passe
+export const UpdatePasswordMember = (password, redirect) => {
   var data = JSON.stringify({
     "password": password,
   });
   var config = {
     method: 'post',
-    url: `${baseUrl.baseUrl}/api/v1/activites/events/`,
+    url: `${baseUrl.baseUrl}/api/v1/members/`,
     headers: {
       'Content-Type': 'application/json',
       'Cookie': 'JSESSIONID=4929A2A226D1D000ECA1AF8906558AF0'
@@ -93,14 +95,17 @@ export const UpdateVideoProgram = (password, redirect) => {
     });
 }
 
-// ************************************************ rendre invisible témoignage
-export const StopProgram = (id,redirect) => {
+
+
+
+// ************************************************ Bloquer acces au compte 
+export const StopMember = (redirect) => {
   var data = JSON.stringify({
-    "visible": Boolean(false),
+    "access": Boolean(false),
   });
   var config = {
     method: 'put',
-    url: `${baseUrl.baseUrl}/api/v1/activites/events/hide/${id}`,
+    url: `${baseUrl.baseUrl}/api/v1/members/`,
     headers: {
       'Content-Type': 'application/json',
       'Cookie': 'JSESSIONID=4929A2A226D1D000ECA1AF8906558AF0'
@@ -120,14 +125,14 @@ export const StopProgram = (id,redirect) => {
 
 
 
-// ********************************************* Rendre visible temoignage 
-export const AccessProgram = (id,redirect) => {
+// ********************************************* Débloquer un compte
+export const AccessMember = (redirect) => {
   var data = JSON.stringify({
-    "visible": Boolean(true),
+    "access": Boolean(true),
   });
   var config = {
     method: 'put',
-    url: `${baseUrl.baseUrl}/api/v1/activites/events/show/${id}`,
+    url: `${baseUrl.baseUrl}/api/v1/members/`,
     headers: {
       'Content-Type': 'application/json',
       'Cookie': 'JSESSIONID=4929A2A226D1D000ECA1AF8906558AF0'
@@ -145,9 +150,9 @@ export const AccessProgram = (id,redirect) => {
 }
 
 
-// Recupérer tout les programes
-export const LoadAllProgram = (SetState) => {
-  axios.get(`${baseUrl.baseUrl}/api/v1/activites/events/`, {
+// Recupérer tout compte des membres
+export const LoadAllMember = (SetState) => {
+  axios.get(`${baseUrl.baseUrl}/api/v1/members/`, {
     headers: {
       'Content-Type': 'application/json',
       'Cookie': 'JSESSIONID=4929A2A226D1D000ECA1AF8906558AF0'
@@ -161,5 +166,3 @@ export const LoadAllProgram = (SetState) => {
       console.log(error);
     });
 }
-
-

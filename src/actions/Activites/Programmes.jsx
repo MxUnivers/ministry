@@ -1,22 +1,21 @@
+
+
 import axios from "axios";
 import AllRoutes from "../../nametitle/AllRoutes";
 import { baseUrl } from "../../nametitle/dataUrl";
 
 
-// Créer un Program
-export const CreateProgram = (title, coverPicture, description, content, video, audio, redirect) => {
+// Créer un Programme 
+export const CreateProgram = (title, coverPicture, description, redirect) => {
   var data = JSON.stringify({
     "title": title,
-    "coverPicture": coverPicture,
     "description": description,
-    "content": content,
-    "video": video,
-    "audio": audio,
-    "typeActivity":"school"
+    "coverPicture":coverPicture,
+    "typeActivity":"programme"
   });
   var config = {
     method: 'post',
-    url: `${baseUrl.baseUrl}/api/v1/activites/school/`,
+    url: `${baseUrl.baseUrl}/api/v1/activites/programmes/`,
     headers: {
       'Authorization': 'Bearer ',
       'Content-Type': 'application/json',
@@ -27,6 +26,7 @@ export const CreateProgram = (title, coverPicture, description, content, video, 
   axios(config)
     .then(function (response) {
       console.log(JSON.stringify(response.data));
+      window.location.reload();
       redirect(`/${AllRoutes.admin}/${AllRoutes.userlist}`);
     })
     .catch(function (error) {
@@ -35,18 +35,15 @@ export const CreateProgram = (title, coverPicture, description, content, video, 
 }
 
 // Mise ajour du Témoignage
-export const UpdateProgram = (id, title, coverPicture, description, content, video, audio, redirect) => {
+export const UpdateProgram = (id, title,coverPicture, description, redirect) => {
   var data = JSON.stringify({
     "title": title,
-    "coverPicture": coverPicture,
     "description": description,
-    "content": content,
-    "video": video,
-    "audio": audio
+    "coverPicture":coverPicture,
   });
   var config = {
     method: 'put',
-    url: `${baseUrl.baseUrl}/api/v1/activites/school/${id}`,
+    url: `${baseUrl.baseUrl}/api/v1/activites/programmes/${id}`,
     headers: {
       'Authorization': 'Bearer ',
       'Content-Type': 'application/json',
@@ -57,7 +54,8 @@ export const UpdateProgram = (id, title, coverPicture, description, content, vid
   axios(config)
     .then(function (response) {
       console.log(JSON.stringify(response.data));
-      redirect(`/${AllRoutes.admin}/${AllRoutes.userlist}`);
+      window.location.reload();
+      redirect(`/${AllRoutes.admin}/${AllRoutes.activity}`);
     })
     .catch(function (error) {
       console.log(error);
@@ -76,7 +74,7 @@ export const UpdateVideoProgram = (password, redirect) => {
   });
   var config = {
     method: 'post',
-    url: `${baseUrl.baseUrl}/api/v1/activites/school/`,
+    url: `${baseUrl.baseUrl}/api/v1/activites/programmes/`,
     headers: {
       'Content-Type': 'application/json',
       'Cookie': 'JSESSIONID=4929A2A226D1D000ECA1AF8906558AF0'
@@ -100,7 +98,7 @@ export const StopProgram = (id,redirect) => {
   });
   var config = {
     method: 'put',
-    url: `${baseUrl.baseUrl}/api/v1/activites/school/hide/${id}`,
+    url: `${baseUrl.baseUrl}/api/v1/activites/programmes/hide/${id}`,
     headers: {
       'Content-Type': 'application/json',
       'Cookie': 'JSESSIONID=4929A2A226D1D000ECA1AF8906558AF0'
@@ -127,7 +125,7 @@ export const AccessProgram = (id,redirect) => {
   });
   var config = {
     method: 'put',
-    url: `${baseUrl.baseUrl}/api/v1/activites/school/show/${id}`,
+    url: `${baseUrl.baseUrl}/api/v1/activites/programmes/show/${id}`,
     headers: {
       'Content-Type': 'application/json',
       'Cookie': 'JSESSIONID=4929A2A226D1D000ECA1AF8906558AF0'
@@ -147,7 +145,7 @@ export const AccessProgram = (id,redirect) => {
 
 // Recupérer tout les programes
 export const LoadAllProgram = (SetState) => {
-  axios.get(`${baseUrl.baseUrl}/api/v1/activites/school/`, {
+  axios.get(`${baseUrl.baseUrl}/api/v1/activites/programmes/`, {
     headers: {
       'Content-Type': 'application/json',
       'Cookie': 'JSESSIONID=4929A2A226D1D000ECA1AF8906558AF0'

@@ -1,10 +1,69 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { LoadAllSchool, UpdateSchool } from '../../../actions/Activites/School';
 import ModalAddSchoolBible from '../../../modal/admin/actvites/ModalAddSchoolBible';
 
 const ListSchoolBibleAdmin = () => {
-  const items = [1];
-  const bgImg = "https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+  const navigate = useNavigate();
 
+  const [idSchool, setidSchool] = useState("")
+  const [coverPicture, setcoverPicture] = useState("");
+  const [title, settitle] = useState("");
+  const [descripion, setdescripion] = useState("");
+  const [audio, setaudio] = useState("");
+  const [video, setvideo] = useState("");
+
+  // ******************************************* Photo
+  const HandleFileInputChangePhoto = (e) => {
+    const file = e.target.files[0];
+    previewFilePhoto(file);
+  }
+  const previewFilePhoto = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setcoverPicture(reader.result);
+      // console.log(previewSource)
+    }
+  }
+  // **************************************************Vidéo
+  const HandleFileInputChangeVideo = (e) => {
+    const file = e.target.files[0];
+    previewFileVideo(file);
+  }
+  const previewFileVideo = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setvideo(reader.result);
+      // console.log(previewSource)
+    }
+  }
+  // ***************************************************Audio
+  const HandleFileInputChangeAudio = (e) => {
+    const file = e.target.files[0];
+    previewFileAudio(file);
+  }
+  const previewFileAudio = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setaudio(reader.result);
+      // console.log(previewSource)
+    }
+  }
+  const [search, setsearch] = useState("");
+  const [EnseignementList, setEnseignementList] = useState([]);
+  const [SearchEnseignementList, setSearchEnseignementList] = useState([]);
+  useEffect(() => {
+    LoadAllSchool(setEnseignementList);
+    LoadAllSchool(setSearchEnseignementList);
+  }, []);
+
+  // Recherche
+  const HandleSearch = (e) => {
+    setsearch(e.target.value);
+  }
   return (
     <div>
       <div class="w-full container-fluid py-5">
@@ -25,9 +84,9 @@ const ListSchoolBibleAdmin = () => {
 
           <div class="w-full blog-item mb-5">
             {
-              items && items.length > 0 ?
+              EnseignementList && EnseignementList.length > 0 ?
                 (
-                  items.map(() => {
+                  EnseignementList.map(() => {
                     return (
                       <div class="max-w-sm w-full lg:max-w-full lg:flex">
                         <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
@@ -64,26 +123,31 @@ const ListSchoolBibleAdmin = () => {
                               <div class="modal-body h-[440px] container flex justify-center">
                                 <div class="flex justify-center row g-8">
                                   <div class="col-lg-9">
-                                    <form>
+                                    <form onSubmit={(e) => { UpdateSchool(idSchool, title, coverPicture, descripion, video, audio, navigate) }}>
                                       <div class="row g-3">
-                                        <div class="col-12">
-                                          <input type="text" required class="form-control bg-light border-0 px-4 py-1" placeholder="nom evenement" style={{ height: "40px" }} />
+                                        <div class="col-12 flex">
+                                          <label class="form-control border-0 px-4" style={{ height: "40px" }}>titre</label>
+                                          <input type="text" value={title} onChange={(e) => { settitle(e.target.value) }} required class="form-control bg-light border-0 px-4" placeholder="titre de la vidéo" style={{ height: "40px" }} />
                                         </div>
                                         <div class="col-12 flex">
-                                          <input type="file" accept=".JPNG,.JPEG,.PNG" required class="form-control bg-light border-0 px-4" placeholder="Votre email" style={{ height: "40px" }} />
-                                          <img src={`${bgImg}`} class="h-[50px] h-[50px]" />
+                                          <label class="form-control border-0 px-4" style={{ height: "40px" }}>Image</label>
+                                          <input type="file" onChange={HandleFileInputChangePhoto} required class="form-control bg-light border-0 px-4" accept=".JPEG , .JPG" placeholder="image" style={{ height: "40px" }} />
+                                          <img src={`${coverPicture}`} class="h-[50px] h-[50px]" />
                                         </div>
                                         <div class="col-12 flex">
-                                          <label class="form-control border-0 px-4" style={{ height: "40px" }}>date</label>
-                                          <input type="date" required class="form-control bg-light border-0 px-4" placeholder="Numéro de téléphone" style={{ height: "40px" }} />
+                                          <label class="form-control border-0 px-4" style={{ height: "40px" }}>Video</label>
+                                          <input type="file" onChange={HandleFileInputChangeVideo} required class="form-control bg-light border-0 px-4" placeholder="vidéo" style={{ height: "40px" }} />
+                                        </div>
+                                        <div class="col-12 flex">
+                                          <label class="form-control border-0 px-4" style={{ height: "40px" }}>Audio</label>
+                                          <input type="file" onChange={HandleFileInputChangeAudio} required class="form-control bg-light border-0 px-4" placeholder="audio" style={{ height: "40px" }} />
                                         </div>
                                         <div class="col-12">
-                                          <textarea required class="form-control bg-light border-0 px-4" placeholder="description evenement" style={{ height: "155px" }} />
+                                          <label class="form-control border-0 px-4" style={{ height: "40px" }}>Description</label>
+                                          <textarea value={descripion} onChange={(e) => { setdescripion(e.target.value) }} required class="form-control bg-light border-0 px-4" placeholder="description evenement" style={{ height: "155px" }} />
                                         </div>
                                         <div class="col-12">
-                                          <button class="btn btn-outline-primary w-100 py-3" type="submit">
-                                            Appliquer
-                                          </button>
+                                          <button class="btn btn-outline-primary w-100 py-3" type="submit">Modifier</button>
                                         </div>
                                       </div>
                                     </form>
@@ -98,7 +162,7 @@ const ListSchoolBibleAdmin = () => {
                     )
                   })
                 ) :
-                <div>Acun don en cours ...</div>
+                <div>Acun Enseignement en cours ...</div>
             }
           </div>
         </div>

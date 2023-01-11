@@ -3,31 +3,31 @@ import AllRoutes from "../../nametitle/AllRoutes";
 import { baseUrl } from "../../nametitle/dataUrl";
 
 
-// Créer un Program
-export const CreateProgram = (title, coverPicture, description, content, video, audio, redirect) => {
+// Créer un Temoignage
+export const CreateTemoignage = async(title, coverPicture, description, content, video, audio, redirect) => {
   var data = JSON.stringify({
     "title": title,
-    "coverPicture": coverPicture,
     "description": description,
+    "coverPicture": coverPicture,
     "content": content,
     "video": video,
     "audio": audio,
-    "typeActivity":"dons"
   });
+  console.log(data);
+  
   var config = {
     method: 'post',
-    url: `${baseUrl.baseUrl}/api/v1/activites/dons/`,
-    headers: {
-      'Authorization': 'Bearer ',
-      'Content-Type': 'application/json',
-      'Cookie': 'JSESSIONID=4929A2A226D1D000ECA1AF8906558AF0'
+    url: 'http://localhost:8000/api/v1/temoignages/',
+    headers: { 
+      'Content-Type': 'application/json'
     },
-    data: data
+    data : data
   };
-  axios(config)
+  await axios(config)
     .then(function (response) {
+      alert("Creation réussi")
       console.log(JSON.stringify(response.data));
-      redirect(`/${AllRoutes.admin}/${AllRoutes.userlist}`);
+      return redirect(`/${AllRoutes.admin}/${AllRoutes.temoins}`);
     })
     .catch(function (error) {
       console.log(error);
@@ -35,7 +35,7 @@ export const CreateProgram = (title, coverPicture, description, content, video, 
 }
 
 // Mise ajour du Témoignage
-export const UpdateProgram = (id, title, coverPicture, description, content, video, audio, redirect) => {
+export const UpdateTemoignage = (id, title, coverPicture, description, content, video, audio, redirect) => {
   var data = JSON.stringify({
     "title": title,
     "coverPicture": coverPicture,
@@ -46,7 +46,7 @@ export const UpdateProgram = (id, title, coverPicture, description, content, vid
   });
   var config = {
     method: 'put',
-    url: `${baseUrl.baseUrl}/api/v1/activites/dons/${id}`,
+    url: `${baseUrl.baseUrl}/api/v1/temoignages/${id}`,
     headers: {
       'Authorization': 'Bearer ',
       'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ export const UpdateProgram = (id, title, coverPicture, description, content, vid
   axios(config)
     .then(function (response) {
       console.log(JSON.stringify(response.data));
-      redirect(`/${AllRoutes.admin}/${AllRoutes.userlist}`);
+      redirect(`/${AllRoutes.admin}/${AllRoutes.temoins}`);
     })
     .catch(function (error) {
       console.log(error);
@@ -70,13 +70,13 @@ export const UpdateProgram = (id, title, coverPicture, description, content, vid
 
 
 // **************************************************************   Mise ajour du mot de passe
-export const UpdateVideoProgram = (password, redirect) => {
+export const UpdateVideoTemoignage = (password, redirect) => {
   var data = JSON.stringify({
     "password": password,
   });
   var config = {
     method: 'post',
-    url: `${baseUrl.baseUrl}/api/v1/activites/dons/`,
+    url: `${baseUrl.baseUrl}/api/v1/temoignages/`,
     headers: {
       'Content-Type': 'application/json',
       'Cookie': 'JSESSIONID=4929A2A226D1D000ECA1AF8906558AF0'
@@ -94,13 +94,13 @@ export const UpdateVideoProgram = (password, redirect) => {
 }
 
 // ************************************************ rendre invisible témoignage
-export const StopProgram = (id,redirect) => {
+export const StopTemoignage = (redirect) => {
   var data = JSON.stringify({
     "visible": Boolean(false),
   });
   var config = {
     method: 'put',
-    url: `${baseUrl.baseUrl}/api/v1/activites/dons/hide/${id}`,
+    url: `${baseUrl.baseUrl}/api/v1/temoignages/`,
     headers: {
       'Content-Type': 'application/json',
       'Cookie': 'JSESSIONID=4929A2A226D1D000ECA1AF8906558AF0'
@@ -121,13 +121,13 @@ export const StopProgram = (id,redirect) => {
 
 
 // ********************************************* Rendre visible temoignage 
-export const AccessProgram = (id,redirect) => {
+export const AccessTemoignage = (redirect) => {
   var data = JSON.stringify({
     "visible": Boolean(true),
   });
   var config = {
     method: 'put',
-    url: `${baseUrl.baseUrl}/api/v1/activites/dons/show/${id}`,
+    url: `${baseUrl.baseUrl}/api/v1/temoignages/`,
     headers: {
       'Content-Type': 'application/json',
       'Cookie': 'JSESSIONID=4929A2A226D1D000ECA1AF8906558AF0'
@@ -145,14 +145,16 @@ export const AccessProgram = (id,redirect) => {
 }
 
 
-// Recupérer tout les programes
-export const LoadAllProgram = (SetState) => {
-  axios.get(`${baseUrl.baseUrl}/api/v1/activites/dons/`, {
+// Recupérer tout les temoignages
+export const LoadAllTemoignage = (SetState) => {
+  var options = {
+    method: 'GET',
+    url: 'http://localhost:8000/api/v1/temoignages/',
     headers: {
-      'Content-Type': 'application/json',
-      'Cookie': 'JSESSIONID=4929A2A226D1D000ECA1AF8906558AF0'
+      'Content-Type': 'application/json'
     }
-  })
+  };
+  axios(options)
     .then(function (response) {
       console.log(JSON.stringify(response.data));
       SetState(response.data.data)

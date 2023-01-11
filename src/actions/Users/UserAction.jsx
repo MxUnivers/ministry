@@ -4,19 +4,18 @@ import { baseUrl } from "../../nametitle/dataUrl";
 
 
 // Créer un compte 
-export  const CreateMember  =  (name,coverPicture,email,code,telephone,pays,password,redirect)=>{
+export  const CreateUser  =  (username,firstname,lastname,email,telephone,password,redirect)=>{
     var data = JSON.stringify({
-        "name": name,
-        "coverPicture": coverPicture,
+        "username": username,
+        "firstname": firstname,
+        "lestname": lastname,
         "email": email,
-        "code": code,
         "telephone": telephone,
-        "pays": pays,
-        "password": password,
+        "password": password
       });
       var config = {
         method: 'post',
-        url: `${baseUrl.baseUrl}/api/v1/members/`,
+        url: `${baseUrl.baseUrl}/api/v1/users/`,
         headers: { 
           'Authorization': 'Bearer ', 
           'Content-Type': 'application/json', 
@@ -35,18 +34,20 @@ export  const CreateMember  =  (name,coverPicture,email,code,telephone,pays,pass
 }
 
 // Mise ajour du compte 
-export  const UpdateMember  =  (id,name,coverPicture,email,code,telephone,pays,redirect)=>{
-  var data = JSON.stringify({
-    "name": name,
-    "coverPicture": coverPicture,
-    "email": email,
-    "code": code,
-    "telephone": telephone,
-    "pays": pays,
-  });
+export  const UpdateUser  =  (id,username,firstname,lastname,email,code,telephone,roles,redirect)=>{
+    var data = JSON.stringify({
+        "username":username,
+        "firstname":firstname,
+        "lastname":lastname,
+        "email":email,
+        "code":code,
+        "telephone": telephone,
+        "roles": roles
+      });
+      
       var config = {
-        method: 'put',
-        url: `${baseUrl.baseUrl}/api/v1/members/${id}`,
+        method: 'post',
+        url: `${baseUrl.baseUrl}/api/v1/users/${id}`,
         headers: { 
           'Authorization': 'Bearer ', 
           'Content-Type': 'application/json', 
@@ -54,10 +55,10 @@ export  const UpdateMember  =  (id,name,coverPicture,email,code,telephone,pays,r
         },
         data : data
       };
-      
       axios(config)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
+        window.location.reload();
         redirect(`/${AllRoutes.admin}/${AllRoutes.userlist}`);
       })
       .catch(function (error) {
@@ -70,16 +71,16 @@ export  const UpdateMember  =  (id,name,coverPicture,email,code,telephone,pays,r
 
 
 
-// **************************************************************   Mise à jour du mot de passe
-export  const UpdatePasswordMember  =  (password,redirect)=>{
+// **************************************************************   Mise ajour du mot de passe
+export  const UpdatePasswordUser  =  (password,redirect)=>{
     var data = JSON.stringify({
         "password":password,
       });
       var config = {
         method: 'post',
-        url: `${baseUrl.baseUrl}/api/v1/members/`,
+        url: `${baseUrl.baseUrl}/api/v1/users/`,
         headers: {  
-          'Content-Type': 'application/json', 
+          'Content-Type': 'application/json',
           'Cookie': 'JSESSIONID=4929A2A226D1D000ECA1AF8906558AF0'
         },
         data : data
@@ -94,17 +95,14 @@ export  const UpdatePasswordMember  =  (password,redirect)=>{
       });
 }
 
-
-
-
 // ************************************************ Bloquer acces au compte 
-export  const StopMember  =  (redirect)=>{
+export  const StopUser  =  (id,redirect)=>{
     var data = JSON.stringify({
         "access":Boolean(false),
       });
       var config = {
         method: 'put',
-        url: `${baseUrl.baseUrl}/api/v1/members/`,
+        url: `${baseUrl.baseUrl}/api/v1/users/${id}`,
         headers: {  
           'Content-Type': 'application/json', 
           'Cookie': 'JSESSIONID=4929A2A226D1D000ECA1AF8906558AF0'
@@ -124,14 +122,14 @@ export  const StopMember  =  (redirect)=>{
 
 
 
-// ********************************************* Débloquer un compte
-export  const AccessMember  =  (redirect)=>{
+// ********************************************* Débloquer un compte 
+export  const AccessUser  =  (id,redirect)=>{
     var data = JSON.stringify({
         "access":Boolean(true),
       });
       var config = {
         method: 'put',
-        url: `${baseUrl.baseUrl}/api/v1/members/`,
+        url: `${baseUrl.baseUrl}/api/v1/users/${id}`,
         headers: {  
           'Content-Type': 'application/json', 
           'Cookie': 'JSESSIONID=4929A2A226D1D000ECA1AF8906558AF0'
@@ -149,9 +147,9 @@ export  const AccessMember  =  (redirect)=>{
 }
 
 
-// Recupérer tout compte des membres
-export  const LoadAllMember  =  (SetState)=>{
-      axios.get(`${baseUrl.baseUrl}/api/v1/members/`, {
+// Recupérer tout compte des utlisateurs
+export  const LoadAllUser  =  (SetState)=>{
+      axios.get(`${baseUrl.baseUrl}/api/v1/users/`, {
         headers: {  
             'Content-Type': 'application/json', 
             'Cookie': 'JSESSIONID=4929A2A226D1D000ECA1AF8906558AF0'
@@ -163,4 +161,19 @@ export  const LoadAllMember  =  (SetState)=>{
       .catch(function (error) {
         console.log(error);
       });
+}
+// Recuperer tout compte des utlisateurs Bloqué
+export  const LoadAllStopUser  =  (SetState)=>{
+    axios.get(`${baseUrl.baseUrl}/api/v1/users/`, {
+      headers: {  
+          'Content-Type': 'application/json', 
+          'Cookie': 'JSESSIONID=4929A2A226D1D000ECA1AF8906558AF0'
+      }})
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+      SetState(response.data.data)
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 }
